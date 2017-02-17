@@ -1,0 +1,34 @@
+group 'example'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+ext {
+    springBootVersion = '1.5.1.RELEASE'
+}
+
+dependencies{
+    compile(
+            "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
+            "org.springframework.boot:spring-boot-starter-test:$springBootVersion",
+            "org.springframework.boot:spring-boot-devtools:$springBootVersion",
+            "org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion",
+            "org.springframework.boot:spring-boot-starter-security:$springBootVersion",
+            "org.springframework.security:spring-security-cas:4.2.1.RELEASE"
+    )
+}
+
+task createDir << {
+    sourceSets*.java.srcDirs*.each { it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+}
