@@ -1,25 +1,25 @@
 debug: true
 
 server:
-  port: 8080
+  port: 9090
 
 logging:
   config: classpath:logback-spring.xml
   level: debug
 
-#CAS服务地址
+# CAS服务地址
 cas:
   server:
-    url: http://localhost:8443/cas
-    #CAS服务登录地址
+    url: http://localhost:8080/cas
+    # CAS服务登录地址
     login_url: ${cas.server.url}/login
-    #CAS服务登出地址
+    # CAS服务登出地址
     logout_url: ${cas.server.url}/logout?service=${app.url}
 
-#应用访问地址
+# 应用访问地址
 app:
-  url: http://localhost:8080
-  #应用登录地址
+  url: http://localhost:9090
+  # 应用登录地址
   login_url: /login
-  #应用登出地址
+  # 应用登出地址
   logout_url: /logout

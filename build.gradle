@@ -2,6 +2,7 @@ group 'example'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'war'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -18,14 +19,13 @@ ext {
 }
 
 dependencies{
-    compile(
-            "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
-            "org.springframework.boot:spring-boot-starter-test:$springBootVersion",
-            "org.springframework.boot:spring-boot-devtools:$springBootVersion",
-            "org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion",
-            "org.springframework.boot:spring-boot-starter-security:$springBootVersion",
-            "org.springframework.security:spring-security-cas:4.2.1.RELEASE"
-    )
+    compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-devtools:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-security:$springBootVersion"
+    compile "org.springframework.security:spring-security-cas:4.2.1.RELEASE"
+    providedCompile "org.springframework.boot:spring-boot-starter-tomcat:$springBootVersion"
+    testCompile "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
 }
 
 task createDir << {
