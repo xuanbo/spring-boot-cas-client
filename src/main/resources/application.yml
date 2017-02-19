@@ -10,7 +10,7 @@ logging:
 # CAS服务地址
 cas:
   server:
-    url: http://localhost:8080/cas
+    url: https://localhost:8443/cas
     # CAS服务登录地址
     login_url: ${cas.server.url}/login
     # CAS服务登出地址
@@ -23,3 +23,8 @@ app:
   login_url: /login
   # 应用登出地址
   logout_url: /logout
+
+spring:
+    redis:
+      host: localhost
+      port: 6379

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Created by null on 2017/2/16.
  */
@@ -16,8 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
-    public String index(ModelMap modelMap) {
+    public String index(ModelMap modelMap, HttpSession session) {
         modelMap.addAttribute("msg", "welcome to spring-boot-cas-client!");
+        modelMap.addAttribute("sessionId", session.getId());
         return "index";
     }
 
